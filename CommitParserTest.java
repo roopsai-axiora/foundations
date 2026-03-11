@@ -11,5 +11,12 @@ void main() {
     assert b[1].equals("");
     assert b[2].equals("update readme");
 
+    String[] c = parser.parse("feat(api)!: rename users endpoint");
+    assert c[0].equals("feat");
+    assert c[1].equals("api");
+    assert c[2].equals("rename users endpoint");
+    assert c[3].equals("true");
+
+
     System.out.println("CommitParser tests passed");
 }
