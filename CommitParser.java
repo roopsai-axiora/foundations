@@ -1,6 +1,9 @@
 public class CommitParser {
     public String[] parse(String message) {
-        // expected: type(scope): description
+        if (message == null || !message.contains(":")) {
+            return new String[] { "", "", "" };
+        }
+
         int colon = message.indexOf(":");
         String left = message.substring(0, colon).trim();
         String desc = message.substring(colon + 1).trim();
