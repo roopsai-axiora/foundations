@@ -1,13 +1,12 @@
-public class User {
-    private String name;
-    private String email;
 
-    User(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
+public record User(String name, String email, Role role){
 
-    public String getName() {
-        return name;
-    }
 }
+
+
+
+
+
+
+
+
