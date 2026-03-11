@@ -1,12 +1,15 @@
 public class CommitParser {
     public String[] parse(String message) {
         if (message == null || !message.contains(":")) {
-            return new String[] { "", "", "" };
+            return new String[] { "", "", "", "false" };
         }
 
         int colon = message.indexOf(":");
         String left = message.substring(0, colon).trim();
         String desc = message.substring(colon + 1).trim();
+
+        boolean breaking = left.contains("!");
+        left = left.replace("!", "");
 
         String type;
         String scope = "";
@@ -21,6 +24,6 @@ public class CommitParser {
             type = left;
         }
 
-        return new String[] { type, scope, desc };
+        return new String[] { type, scope, desc, String.valueOf(breaking) };
     }
 }
